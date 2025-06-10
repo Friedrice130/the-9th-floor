@@ -1,93 +1,77 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class SpawnAnomaly : MonoBehaviour
 {
     [System.Serializable]
-    public class Anomaly
+    public class AnomalyGroup
     {
-        public GameObject instanceA;
-        public GameObject instanceB;
+        public string name; // For Inspector clarity
+        public GameObject instanceA; // Hallway 1
+        public GameObject instanceB; // Hallway 2
         [HideInInspector] public bool hasSpawned = false;
-        [HideInInspector] public bool isActive = false; // tracks if it's currently spawned
     }
 
-    public Anomaly[] anomalies;
-    [Range(0f, 1f)] public float spawnChance = 1f;
+    public List<AnomalyGroup> anomalyGroups = new List<AnomalyGroup>();
+    [Range(0f, 1f)] public float spawnChancePerFloor = 0.3f;
 
-    private readonly List<Anomaly> activeAnomalies = new();
+    private AnomalyGroup currentActiveAnomaly = null;
+
+
+    private void Start()
+    {
+        foreach (var group in anomalyGroups)
+        {
+            if (group.instanceA != null) group.instanceA.SetActive(false);
+            if (group.instanceB != null) group.instanceB.SetActive(false);
+        }
+    }
+
 
     public void TrySpawnAnomalies()
     {
-        ClearAnomalies(); // Clean up previously active anomalies
+        Debug.Log("Trying to spawn anomaly...");
 
-        // Do not spawn anomalies on floor 1
-        if (GameManager.Instance.currentFloor == 1)
-        {
-            GameManager.Instance.anomalyActive = false;
-            return; // No anomaly on floor 1
-        }
+        if (GameManager.Instance.anomalyActive)
+            return;
 
+        if (Random.value > spawnChancePerFloor)
+            return;
 
-        foreach (var anomaly in anomalies)
-        {
-            if (anomaly.hasSpawned)
-                continue;
+        List<AnomalyGroup> available = anomalyGroups.FindAll(a => !a.hasSpawned);
+        if (available.Count == 0)
+            return;
 
-            bool anySpawned = false;
+        int index = Random.Range(0, available.Count);
+        AnomalyGroup chosen = available[index];
 
-            if (anomaly.instanceA != null && Random.value < spawnChance)
-            {
-                anomaly.instanceA.SetActive(true);
-                anySpawned = true;
-            }
+        if (chosen.instanceA != null) chosen.instanceA.SetActive(true);
+        if (chosen.instanceB != null) chosen.instanceB.SetActive(true);
 
-            if (anomaly.instanceB != null && Random.value < spawnChance)
-            {
-                anomaly.instanceB.SetActive(true);
-                anySpawned = true;
-            }
+        chosen.hasSpawned = true;
+        currentActiveAnomaly = chosen;
+        GameManager.Instance.anomalyActive = true;
 
-            if (anySpawned)
-            {
-                anomaly.hasSpawned = true;
-                anomaly.isActive = true;
-                activeAnomalies.Add(anomaly);
-                GameManager.Instance.anomalyActive = true;
-            }
-        }
+        Debug.Log("Spawned Anomaly: " + chosen.name);
     }
+
 
     public void ClearAnomalies()
     {
-        foreach (var anomaly in activeAnomalies)
+        Debug.Log("Cleared anomaly.");
+
+        if (currentActiveAnomaly != null)
         {
-            if (anomaly.isActive)
-            {
-                if (anomaly.instanceA != null)
-                    Destroy(anomaly.instanceA); // Permanently remove from scene
+            if (currentActiveAnomaly.instanceA != null)
+                currentActiveAnomaly.instanceA.SetActive(false);
 
-                if (anomaly.instanceB != null)
-                    Destroy(anomaly.instanceB);
+            if (currentActiveAnomaly.instanceB != null)
+                currentActiveAnomaly.instanceB.SetActive(false);
 
-                anomaly.isActive = false;
-            }
+            currentActiveAnomaly = null;
         }
 
-        activeAnomalies.Clear();
         GameManager.Instance.anomalyActive = false;
     }
 
-    // Optional: Call this on new game to allow re-spawning
-    public void ResetAnomalies()
-    {
-        foreach (var anomaly in anomalies)
-        {
-            anomaly.hasSpawned = false;
-            anomaly.isActive = false;
-        }
-
-        activeAnomalies.Clear();
-        GameManager.Instance.anomalyActive = false;
-    }
 }
