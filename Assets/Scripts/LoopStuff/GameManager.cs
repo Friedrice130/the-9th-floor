@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    private SpawnAnomaly anomalySpawner;
+
     public int currentFloor = 9;
     public bool anomalyActive = false;
 
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     {
         // Ensure end triggers are disabled by default
         SetEndTriggersActive(false);
+        anomalySpawner = FindFirstObjectByType<SpawnAnomaly>();
+
     }
 
     public void OnForwardTrigger()
@@ -40,8 +44,8 @@ public class GameManager : MonoBehaviour
         FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
         EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
 
-        // Ensure anomalies are cleared on transition
-        FindFirstObjectByType<SpawnAnomaly>().ClearAnomalies();
+        if (FindFirstObjectByType<SpawnAnomaly>() != null)
+            FindFirstObjectByType<SpawnAnomaly>().ClearAnomalies();
 
         if (currentFloor == 1)
         {
@@ -50,7 +54,26 @@ public class GameManager : MonoBehaviour
         else
         {
             SetEndTriggersActive(false);
+
+            FindFirstObjectByType<SpawnAnomaly>()?.TrySpawnAnomalies();
         }
+    }
+
+
+
+    public void OnForwardTriggerWithAnomaly()
+    {
+        Debug.Log("Anomaly active and forward trigger hit. Returning to floor 9.");
+        currentFloor = 9;
+        anomalyActive = false;
+
+        FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
+        EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
+
+        if (anomalySpawner != null)
+            anomalySpawner.ClearAnomalies();
+
+        SetEndTriggersActive(currentFloor == 1);
     }
 
 
@@ -68,12 +91,27 @@ public class GameManager : MonoBehaviour
 
     public void OnBackwardTrigger()
     {
-        currentFloor--;
-        Debug.Log("Player walked back. Now on floor: " + currentFloor);
+        if (anomalyActive)
+        {
+            // Anomaly present + backward trigger => go next floor (n-1)
+            currentFloor--;
+            anomalyActive = false;
+            Debug.Log("Anomaly active and backward trigger hit. Going to next floor: " + currentFloor);
+        }
+        else
+        {
+            // No anomaly + backward trigger => return to floor 9 (reset)
+            Debug.Log("No anomaly but backward trigger hit. Returning to floor 9.");
+            currentFloor = 9;
+        }
 
         FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
         EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
 
         SetEndTriggersActive(currentFloor == 1);
+
+        if (anomalySpawner != null)
+            anomalySpawner.ClearAnomalies();
     }
+
 }

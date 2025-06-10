@@ -10876,7 +10876,7 @@ GameObject:
   - component: {fileID: 190987430}
   - component: {fileID: 190987429}
   m_Layer: 0
-  m_Name: ForwardTriggerZone
+  m_Name: ForwardTriggerZone2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14598,7 +14598,7 @@ GameObject:
   - component: {fileID: 261003291}
   - component: {fileID: 261003290}
   m_Layer: 0
-  m_Name: BackwardTeleportZone2
+  m_Name: BackwardTeleportZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25141,40 +25141,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c034e5b25e5aa43babbc815e979f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anomalies:
-  - instanceA: {fileID: 1915407966}
+  anomalyGroups:
+  - name: Anomaly 1
+    instanceA: {fileID: 1915407966}
     instanceB: {fileID: 305285256}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 177200654}
+  - name: Anomaly 2
+    instanceA: {fileID: 177200654}
     instanceB: {fileID: 1482615239}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 1929063390}
+  - name: Anomaly 3
+    instanceA: {fileID: 1929063390}
     instanceB: {fileID: 1767722638}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 1418923041}
+  - name: Anomaly 4
+    instanceA: {fileID: 1418923041}
     instanceB: {fileID: 145622910}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 1852508642}
+  - name: Anomaly 5
+    instanceA: {fileID: 1852508642}
     instanceB: {fileID: 39176977}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 1849687866}
+  - name: Anomaly 6
+    instanceA: {fileID: 1849687866}
     instanceB: {fileID: 1095212887}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 1180208670}
+  - name: Anomaly 7
+    instanceA: {fileID: 1180208670}
     instanceB: {fileID: 1582728377}
     hasSpawned: 0
-    isActive: 0
-  - instanceA: {fileID: 135248934}
+  - name: Anomaly 8
+    instanceA: {fileID: 135248934}
     instanceB: {fileID: 969114344}
     hasSpawned: 0
-    isActive: 0
-  spawnChance: 0.184
+  spawnChancePerFloor: 0.9
 --- !u!1 &497496295
 GameObject:
   m_ObjectHideFlags: 0
@@ -25189,7 +25189,7 @@ GameObject:
   - component: {fileID: 497496298}
   - component: {fileID: 497496297}
   m_Layer: 0
-  m_Name: BackwardTriggerZone2
+  m_Name: BackwardTriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79028,7 +79028,7 @@ Transform:
   m_GameObject: {fileID: 1610495096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -23.98, y: 0.2, z: -41.4}
+  m_LocalPosition: {x: -10.54, y: 2.07, z: -41.4}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
