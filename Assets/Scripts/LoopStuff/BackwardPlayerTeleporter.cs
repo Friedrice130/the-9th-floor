@@ -8,6 +8,7 @@ public class BackwardPlayerTeleporter : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Teleport player as usual
             Vector3 localOffset = transform.InverseTransformPoint(other.transform.position);
             Quaternion relativeRotation = TeleportZoneObject.rotation * Quaternion.Inverse(transform.rotation);
 
@@ -20,8 +21,9 @@ public class BackwardPlayerTeleporter : MonoBehaviour
                 cc.enabled = true;
             }
 
-            // Tell GameManager we went backward
+            // Tell GameManager about backward trigger, so it decides what to do
             GameManager.Instance.OnBackwardTrigger();
         }
     }
+
 }

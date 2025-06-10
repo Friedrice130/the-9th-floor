@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CScenesD : MonoBehaviour
@@ -14,10 +16,15 @@ public class CScenesD : MonoBehaviour
     public AudioClip sound;
 
     private AudioSource audioSource;
-
+    public Image black;
+    public Animator anim;
 
     void Start()
     {
+        // Force cursor to be visible and unlocked
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -26,6 +33,7 @@ public class CScenesD : MonoBehaviour
 
         ShowPage(0);
     }
+
 
     void Update()
     {
@@ -100,9 +108,11 @@ public class CScenesD : MonoBehaviour
                 Button nextButton = pages[currentPageIndex].transform.Find("Next")?.GetComponent<Button>();
                 if (nextButton != null)
                 {
+                    Debug.Log("Activating Next button");
                     nextButton.gameObject.SetActive(true);
                 }
             }
+
         }
     }
 
@@ -113,7 +123,15 @@ public class CScenesD : MonoBehaviour
     void EndCutscene()
     {
         //gameObject.SetActive(false);
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("EndCS");
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene("EndCS");
     }
 
 }
