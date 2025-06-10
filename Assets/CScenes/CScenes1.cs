@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class CScenes1 : MonoBehaviour
 {
+    public Image black;
+    public Animator anim;
     public List<GameObject> pages;
     private int currentPageIndex = 0;
 
@@ -114,6 +118,14 @@ public class CScenes1 : MonoBehaviour
 
     void EndCutscene()
     {
+        //StartCoroutine(Fading());
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene("MainMenu");
     }
 }

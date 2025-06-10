@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CScenes : MonoBehaviour
@@ -15,6 +17,8 @@ public class CScenes : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public Image black;
+    public Animator anim;
 
     void Start()
     {
@@ -114,6 +118,14 @@ public class CScenes : MonoBehaviour
 
     void EndCutscene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        StartCoroutine(Fading());
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("GameScene");
     }
 }

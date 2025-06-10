@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+
+
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +14,8 @@ public class GameManager : MonoBehaviour
     [Header("Special Object for Level 1")]
     public GameObject[] endTriggerObjects;
     public GameObject forwardTriggerZone; // assign this in inspector
+
+
 
     private void Awake()
     {
