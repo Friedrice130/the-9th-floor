@@ -22713,7 +22713,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 493544493}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &442785339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25406,7 +25406,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 273134725}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &499231239
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38642,7 +38642,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 1011333582}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &794670530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -54863,7 +54863,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 1011333582}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &1178932990
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -56419,7 +56419,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 273134725}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &1220797861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61593,7 +61593,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 1822403412}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &1335481827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -73922,7 +73922,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 493544493}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &1560421593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75174,7 +75174,7 @@ MonoBehaviour:
   inttext: {fileID: 1945575961}
   closetext: {fileID: 361520957}
   imagePanel: {fileID: 1822403412}
-  player: {fileID: 0}
+  player: {fileID: 1610495096}
 --- !u!54 &1592673512
 Rigidbody:
   m_ObjectHideFlags: 0

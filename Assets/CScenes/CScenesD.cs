@@ -18,6 +18,10 @@ public class CScenesD : MonoBehaviour
 
     void Start()
     {
+        // Force cursor to be visible and unlocked
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -26,6 +30,7 @@ public class CScenesD : MonoBehaviour
 
         ShowPage(0);
     }
+
 
     void Update()
     {
@@ -100,9 +105,11 @@ public class CScenesD : MonoBehaviour
                 Button nextButton = pages[currentPageIndex].transform.Find("Next")?.GetComponent<Button>();
                 if (nextButton != null)
                 {
+                    Debug.Log("Activating Next button");
                     nextButton.gameObject.SetActive(true);
                 }
             }
+
         }
     }
 
