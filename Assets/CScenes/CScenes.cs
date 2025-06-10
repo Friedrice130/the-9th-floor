@@ -118,8 +118,8 @@ public class CScenes : MonoBehaviour
 
     void EndCutscene()
     {
-        StartCoroutine(Fading());
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        //StartCoroutine(Fading());
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 
     IEnumerator Fading()
