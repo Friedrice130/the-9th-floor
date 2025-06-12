@@ -7505,7 +7505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6c032110f51fd45b95556a8d78332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 7
+  walkingSpeed: 5
   runningSpeed: 15
   jumpSpeed: 6
   gravity: 20
@@ -39761,7 +39761,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790259539}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c19542478b6a9544bff24271ec30a5c, type: 3}
@@ -86520,7 +86520,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703224664}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c19542478b6a9544bff24271ec30a5c, type: 3}
