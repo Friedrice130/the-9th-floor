@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.03
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.10943389, g: 0.101381205, b: 0.101381205, a: 1}
+  m_AmbientSkyColor: {r: 0.054716945, g: 0.050690603, b: 0.050690603, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -7501,7 +7501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 5
-  runningSpeed: 15
+  runningSpeed: 10
   jumpSpeed: 6
   gravity: 20
   playerCamera: {fileID: 1430631830}
