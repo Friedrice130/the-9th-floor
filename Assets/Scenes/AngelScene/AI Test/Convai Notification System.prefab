@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1fae26184a1504bbf417585440fe12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiNotificationPrefab: {fileID: 1403518103547408502, guid: a45d203304bf0254faeea2e72332fd1b, type: 3}
+  _uiNotificationPrefab: {fileID: 1403518103547408502, guid: 409f6d71b2e3ae44b9e8c0b7987fed6f, type: 3}
   _spacing: 110
   _activeNotificationPos: {x: 0, y: -100}
   _deactivatedNotificationPos: {x: 500, y: -100}

@@ -155,7 +155,6 @@ namespace Convai.Scripts.Runtime.Features
                                 byte[] wavBytes = result.AudioResponse.AudioData.ToByteArray();
 
                                 // will only work for wav files
-                                WavHeaderParser parser = new(wavBytes);
                                 if (convaiNPC.convaiLipSync == null)
                                 {
                                     ConvaiLogger.DebugLog($"Enqueuing responses: {result.AudioResponse.TextData}", ConvaiLogger.LogCategory.LipSync);
@@ -169,7 +168,7 @@ namespace Convai.Scripts.Runtime.Features
                                             : LipSyncBlendFrameData.FrameType.Blendshape;
                                     lipSyncBlendFrameQueue.Enqueue(
                                         new LipSyncBlendFrameData(
-                                            (int)(parser.CalculateDurationSeconds() * 30),
+                                            (int)(WavUtility.CalculateDurationSeconds(wavBytes) * 30),
                                             result,
                                             frameType
                                         )

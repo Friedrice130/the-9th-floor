@@ -10,9 +10,10 @@
                     <ui:ScrollView>
                         <ui:Button text="Welcome" name="welcome-btn" class="sidebar-link" />
                         <ui:Button text="Account" name="account-btn" class="sidebar-link" />
+                        <ui:Button text="Logger Settings" name="logger-settings-btn" class="sidebar-link" />
+                        <ui:Button text="Server Animations" name="server-anim-btn" class="sidebar-link" />
                         <ui:Button text="Long Term Memory" name="ltm-btn" class="sidebar-link" />
                         <ui:Button text="Package Management" name="package-management-btn" class="sidebar-link" />
-                        <ui:Button text="Logger Settings" name="logger-settings-btn" class="sidebar-link" />
                         <ui:Button text="Documentation" name="documentation-btn" class="sidebar-link" />
                         <ui:Button text="Updates" name="updates-btn" class="sidebar-link" />
                         <ui:Button text="Developer Forum" name="contact-us-btn" class="sidebar-link" />
@@ -96,7 +97,7 @@
                     </ui:VisualElement>
                     <ui:Button text="Initialize" name="initialize" class="button-small" />
                     <ui:Label text="Other Features" class="subheader" />
-                    <ui:Label text="Configure various Convai-specific settings to enhance your application’s capabilities." class="mb-4" />
+                    <ui:Label text="Configure various Convai-specific settings to enhance your application's capabilities." class="mb-4" />
                     <ui:VisualElement class="mb-4">
                         <ui:Label text="• Multi-language support" class="bullet-link" />
                         <ui:Label text="• Emotion detection" class="bullet-link" />
@@ -119,6 +120,13 @@
                     </ui:VisualElement>
                     <ui:Label text="Changelog" class="subheader" />
                     <ui:ScrollView name="content-container" class="container" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); -unity-background-scale-mode: flex-start; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+                        <ui:VisualElement class="changelog-entry" style="display: flex;">
+                            <ui:Label text="v3.3.0" class="changelog-version" />
+                            <ui:Label text="Released: June 09, 2025" class="changelog-date" />
+                            <ui:Label text="Annoucement:" class="changelog-section" />
+                            <ui:Label text="• We're excited to announce the launch of the &lt;b&gt;Convai Animation Capture&lt;/b&gt; application on the &lt;b&gt;Meta Quest Store&lt;/b&gt;!&#10;&#10;This powerful tool enables you to &lt;b&gt;record high-quality humanoid animations directly in VR&lt;/b&gt; and seamlessly bring them into &lt;b&gt;Unity&lt;/b&gt; using the latest &lt;b&gt;Convai Unity plugin&lt;/b&gt;. Best of all, the captured animations are &lt;b&gt;engine-agnostic&lt;/b&gt;, making them compatible with any development pipeline.&#10;&#10;Start creating lifelike motion content with ease—directly from your Meta Quest headset.&#10;&#10;• Fixed 11Labs/Cartesia audio buffer processing " class="changelog-item" style="flex-wrap: wrap; white-space: normal;" />
+                            <ui:Button text="Get the Convai Animation Capture App" name="download-meta-quest-app" class="button-small" style="margin-top: 10px; align-self: flex-start;" />
+                        </ui:VisualElement>
                         <ui:VisualElement class="changelog-entry" style="display: flex;">
                             <ui:Label text="v3.2.4" class="changelog-version" />
                             <ui:Label text="Released: March 03, 2025" class="changelog-date" />
@@ -201,6 +209,22 @@
                     <ui:Label text="Have questions or need assistance?" class="subheader" style="margin-top: 10px;" />
                     <ui:Label text="Visit the Convai Developer Forum – our dedicated community and support team are here to help with bug reports and technical queries. Get the support you need and connect with other developers to enhance your experience." class="mb-4 text-base" style="white-space: normal; margin-top: 10px;" />
                     <ui:Button text="Visit Developer Forum" name="developer-forum" class="button-small" style="align-self: flex-start;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="server-anim" class="section-card" style="display: none;">
+                    <ui:VisualElement name="header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between; align-items: center; align-self: stretch; margin-bottom: 6px; margin-top: 12px;">
+                        <ui:Label text="Server Animation" class="header" style="align-self: center; margin-bottom: 0;" />
+                        <ui:Button text="Refresh" display-tooltip-when-elided="true" name="refresh-btn" class="button-small" style="align-self: center; font-size: 14px; -unity-font-style: normal; -unity-font: url(&apos;project://database/Assets/Convai/Art/UI/Custom%20Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf?fileID=12800000&amp;guid=6205a6911cd724fada8aa20e7f1afc6d&amp;type=3#SpaceGrotesk-SemiBold&apos;);" />
+                    </ui:VisualElement>
+                    <ui:ScrollView horizontal-scroller-visibility="Hidden" name="container" mode="Vertical" style="height: 338px; flex-wrap: wrap; flex-direction: row; margin-top: 16px; margin-bottom: 16px;">
+                        <ui:VisualElement name="grid" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; align-self: flex-start; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: flex-start;" />
+                    </ui:ScrollView>
+                    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between; margin-top: 0; margin-bottom: 0;">
+                        <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+                            <ui:Button text="Previous Page" display-tooltip-when-elided="true" name="previous-page-btn" class="button-small" style="align-self: stretch; flex-grow: 0; font-size: 14px; -unity-font: url(&apos;project://database/Assets/Convai/Art/UI/Custom%20Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf?fileID=12800000&amp;guid=6205a6911cd724fada8aa20e7f1afc6d&amp;type=3#SpaceGrotesk-SemiBold&apos;); -unity-font-style: normal; width: 175px;" />
+                            <ui:Button text="Next Page" display-tooltip-when-elided="true" name="next-page-btn" class="button-small" style="align-self: stretch; flex-grow: 0; font-size: 14px; -unity-font: url(&apos;project://database/Assets/Convai/Art/UI/Custom%20Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf?fileID=12800000&amp;guid=6205a6911cd724fada8aa20e7f1afc6d&amp;type=3#SpaceGrotesk-SemiBold&apos;); -unity-font-style: normal; width: 175px;" />
+                        </ui:VisualElement>
+                        <ui:Button text="Import Animations" display-tooltip-when-elided="true" name="import-btn" class="button-small" style="align-self: stretch; flex-grow: 0; font-size: 14px; -unity-font: url(&apos;project://database/Assets/Convai/Art/UI/Custom%20Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf?fileID=12800000&amp;guid=6205a6911cd724fada8aa20e7f1afc6d&amp;type=3#SpaceGrotesk-SemiBold&apos;); -unity-font-style: normal; width: 175px;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="ltm" class="section-card" style="display: none;">
                     <ui:VisualElement name="header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between; align-items: center; align-self: stretch; margin-bottom: 6px; margin-top: 12px;">

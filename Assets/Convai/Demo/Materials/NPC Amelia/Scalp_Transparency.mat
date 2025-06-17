@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
-  - _ENVIRONMENTREFLECTIONS_OFF
   - _METALLICSPECGLOSSMAP
   - _SPECULARHIGHLIGHTS_OFF
   - _SURFACE_TYPE_TRANSPARENT
@@ -34,7 +33,6 @@ Material:
   - TransparentBackface
   - RayTracingPrepass
   - DepthOnly
-  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -64,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 581bb96d4dbb21049be53be20ddc9c42, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -137,7 +135,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7287627351837865666
+--- !u!114 &3355642798711452617
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

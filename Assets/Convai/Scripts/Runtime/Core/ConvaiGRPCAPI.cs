@@ -312,7 +312,7 @@ namespace Convai.Scripts.Runtime.Core
             Metadata headers = new()
             {
                 { "source", "Unity" },
-                { "version", "3.2.3" }
+                { "version", "3.3.0" }
             };
 
             CallOptions options = new(headers);
@@ -571,7 +571,20 @@ namespace Convai.Scripts.Runtime.Core
             while (!cancellationToken.IsCancellationRequested && await call.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false))
                 try
                 {
+
                     GetResponseResponse result = call.ResponseStream.Current;
+
+                    // // Log response details for debugging only if text or audio data is present and audio data length is greater than 46 bytes. Also print sample rate hertz
+                    // // if ((result.AudioResponse != null || result.UserQuery != null) && result.AudioResponse?.AudioData?.Length > 46)
+                    //     ConvaiLogger.DebugLog($"=== GetResponseResponse Details ===\n" +
+                    //         $"Session ID: {result.SessionId}\n" +
+                    //         $"Type: {(result.AudioResponse != null ? "Audio Response" : result.UserQuery != null ? "User Query" : "Other")}\n" +
+                    //     $"Text Data: {result.AudioResponse?.TextData ?? result.UserQuery?.TextData ?? ""}\n" +
+                    //     $"Audio Data Length: {result.AudioResponse?.AudioData?.Length ?? 0} bytes\n" +
+                    //     $"End of Response: {result.AudioResponse?.EndOfResponse ?? result.UserQuery?.EndOfResponse ?? false}\n" +
+                    //     $"Sample Rate Hertz: {result.AudioResponse?.AudioConfig?.SampleRateHertz ?? 0}",
+                    //     ConvaiLogger.LogCategory.Character);
+
                     OnResultReceived?.Invoke(result);
                     ProcessCharacterEmotion(result, npc);
                     ProcessUserQuery(result);
@@ -656,7 +669,6 @@ namespace Convai.Scripts.Runtime.Core
         private void ProcessAudioData(GetResponseResponse result, Queue<LipSyncBlendFrameData> lipSyncBlendFrameQueue, ConvaiNPC npc)
         {
             byte[] wavBytes = result.AudioResponse.AudioData.ToByteArray();
-            WavHeaderParser parser = new(wavBytes);
 
             if (npc.convaiLipSync == null)
             {
@@ -669,7 +681,7 @@ namespace Convai.Scripts.Runtime.Core
                     ? LipSyncBlendFrameData.FrameType.Visemes
                     : LipSyncBlendFrameData.FrameType.Blendshape;
 
-                lipSyncBlendFrameQueue.Enqueue(new LipSyncBlendFrameData((int)(parser.CalculateDurationSeconds() * 30), result, frameType));
+                lipSyncBlendFrameQueue.Enqueue(new LipSyncBlendFrameData((int)(WavUtility.CalculateDurationSeconds(wavBytes) * 30), result, frameType));
             }
         }
 

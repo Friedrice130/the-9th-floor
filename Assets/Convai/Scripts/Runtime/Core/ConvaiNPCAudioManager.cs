@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Convai.Scripts.Runtime.Features;
 using Convai.Scripts.Runtime.LoggerSystem;
+using Service;
 using UnityEngine;
 
 namespace Convai.Scripts.Runtime.Core
@@ -23,7 +24,7 @@ namespace Convai.Scripts.Runtime.Core
             _audioSource = GetComponent<AudioSource>();
             _convaiNPC = GetComponent<ConvaiNPC>();
             TryGetComponent(out _npcController);
-            
+
             _lastTalkingState = false;
         }
 
@@ -106,7 +107,7 @@ namespace Convai.Scripts.Runtime.Core
                                 yield return new WaitForSeconds(0.1f);
                             }
                         }
-                        
+
                         _audioSource.Play();
                         //ConvaiLogger.DebugLog($"Playing: {currentResponseAudio.AudioTranscript}", ConvaiLogger.LogCategory.LipSync);
                         SetCharacterTalking(true);
@@ -134,38 +135,34 @@ namespace Convai.Scripts.Runtime.Core
         /// <summary>
         ///     Converts a byte array containing audio data into an AudioClip.
         /// </summary>
-        /// <param name="byteAudio">Byte array containing the audio data</param>
-        /// <param name="stringSampleRate">String containing the sample rate of the audio</param>
-        /// <returns>AudioClip containing the decoded audio data</returns>
-        public AudioClip ProcessByteAudioDataToAudioClip(byte[] byteAudio, string stringSampleRate)
+        /// <param name="audioResponse">Audio response containing the audio data</param>
+        /// <returns>Float array containing the audio samples</returns>
+        public float[] ProcessByteAudioDataToAudioClip(GetResponseResponse.Types.AudioResponse audioResponse)
         {
             try
             {
-                if (byteAudio.Length <= 44)
-                    throw new ArgumentException("Not enough data in byte audio to trim the header.", nameof(byteAudio));
+                byte[] byteAudio = audioResponse.AudioData.ToByteArray();
 
-                // Trim the 44 bytes WAV header from the byte array to get the actual audio data
-                byte[] trimmedByteAudio = new byte[byteAudio.Length - 44];
-                for (int i = 0, j = 44; i < byteAudio.Length - 44; i++, j++) trimmedByteAudio[i] = byteAudio[j];
+                if (!WavUtility.TryParseWavHeader(byteAudio, out WavUtility.WavHeader header, out int wavHeaderSize))
+                {
+                    throw new ArgumentException("Failed to parse WAV header from byte audio.", nameof(audioResponse));
+                }
+
+                if (byteAudio.Length <= wavHeaderSize)
+                    throw new ArgumentException("Not enough data in byte audio to trim the header.", nameof(audioResponse));
+
+                // Trim the WAV header from the byte array to get the actual audio data
+                byte[] trimmedByteAudio = new byte[byteAudio.Length - wavHeaderSize];
+                Buffer.BlockCopy(byteAudio, wavHeaderSize, trimmedByteAudio, 0, byteAudio.Length - wavHeaderSize);
 
                 // Convert the trimmed byte audio data to a float array of audio samples
                 float[] samples = Convert16BitByteArrayToFloatAudioClipData(trimmedByteAudio);
                 if (samples.Length <= 0) throw new Exception("No samples created after conversion from byte array.");
 
-                const int channels = 1; // Mono audio
-                int sampleRate = int.Parse(stringSampleRate); // Convert the sample rate string to an integer
-
-                // Create an AudioClip using the converted audio samples and other parameters
-                AudioClip clip = AudioClip.Create("Audio Response", samples.Length, channels, sampleRate, false);
-
-                // Set the audio data for the AudioClip
-                clip.SetData(samples, 0);
-
-                return clip;
+                return samples;
             }
             catch (Exception)
             {
-                // Log or handle exceptions appropriately
                 return null;
             }
         }

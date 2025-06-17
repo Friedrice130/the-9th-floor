@@ -34,25 +34,31 @@ namespace Convai.Scripts.Runtime.Core
         private const int RECORDING_LENGTH = 30;
         private static readonly int Talk = Animator.StringToHash("Talk");
 
-        [Header("Character Information")] [Tooltip("Enter the character name for this NPC.")]
+        [Header("Character Information")]
+        [Tooltip("Enter the character name for this NPC.")]
         public string characterName;
 
         [Tooltip("Enter the character ID for this NPC.")]
         public string characterID;
 
-        [Tooltip("The current session ID for the chat with this NPC.")] [ReadOnly]
+        [Tooltip("The current session ID for the chat with this NPC.")]
+        [ReadOnly]
         public string sessionID = "-1";
 
-        [Tooltip("Is this character active?")] [ReadOnly]
+        [Tooltip("Is this character active?")]
+        [ReadOnly]
         public bool isCharacterActive;
 
         [HideInInspector] public ConvaiActionsHandler actionsHandler;
         [HideInInspector] public ConvaiLipSync convaiLipSync;
 
-        [Tooltip("Is this character talking?")] [SerializeField] [ReadOnly]
+        [Tooltip("Is this character talking?")]
+        [SerializeField]
+        [ReadOnly]
         private bool isCharacterTalking;
 
-        [Header("Session Initialization")] [Tooltip("Enable/disable initializing session ID by sending a text request to the server")]
+        [Header("Session Initialization")]
+        [Tooltip("Enable/disable initializing session ID by sending a text request to the server")]
         public bool initializeSessionID;
 
         [HideInInspector] public ConvaiPlayerInteractionManager playerInteractionManager;
@@ -67,15 +73,22 @@ namespace Convai.Scripts.Runtime.Core
         private ConvaiCrosshairHandler _convaiCrosshairHandler;
         private ConvaiGroupNPCController _convaiGroupNPCController;
         private ConvaiPlayerDataSO _convaiPlayerData;
-        private TMP_InputField _currentInputField;
         private bool _groupNPCComponentNotFound;
         private ConvaiGRPCAPI _grpcAPI;
         private bool _isActionActive;
         private bool _isLipSyncActive;
-        private bool _stopAudioPlayingLoop;
-        private bool _stopHandlingInput;
         private Coroutine _processResponseCoroutine;
         public ActionConfig ActionConfig;
+
+        // New fields for sample and transcript buffering
+        private readonly List<float> _sampleBuffer = new();
+        private readonly List<string> _transcriptBuffer = new();
+        private bool HasBufferedData => _sampleBuffer.Count > 0;
+        private float _lastAudioDataTime;
+        private const int SAMPLE_BUFFER_SIZE = 44100;
+        private const float BUFFER_TIMEOUT = 1.5f; // 1500ms timeout
+        private int _currentSampleRate;
+
 
         private bool IsInConversationWithAnotherNPC
         {
@@ -220,7 +233,7 @@ namespace Convai.Scripts.Runtime.Core
             // Invoke the UnityEvent
             onTriggerSent.Invoke(triggerMessage, triggerName);
         }
-        
+
         public async void TriggerSpeech(string triggerMessage)
         {
             string triggerName = "";
@@ -382,13 +395,13 @@ namespace Convai.Scripts.Runtime.Core
             if (convaiLipSync == null) return;
             convaiLipSync.PurgeExcessFrames();
         }
-        
+
         private IEnumerator ProcessResponseCoroutine()
         {
             while (gameObject.activeInHierarchy)
             {
                 ProcessResponse();
-                yield return new WaitForSeconds(1f/100f);
+                yield return new WaitForSeconds(1f / 100f);
             }
         }
 
@@ -402,36 +415,62 @@ namespace Convai.Scripts.Runtime.Core
         private void ProcessResponse()
         {
             // Check if the character is active and should process the response
-            if (isCharacterActive || IsInConversationWithAnotherNPC)
-                if (_getResponseResponses.Count > 0)
+            if (!isCharacterActive && !IsInConversationWithAnotherNPC)
+            {
+                return;
+            }
+
+            // Check if there is any queued response
+            if (_getResponseResponses.Count > 0)
+            {
+                GetResponseResponse serverResponse = _getResponseResponses.Dequeue();
+
+                if (serverResponse?.AudioResponse != null)
                 {
-                    GetResponseResponse getResponseResponse = _getResponseResponses.Dequeue();
+                    int audioDataLength = serverResponse.AudioResponse.AudioData.ToByteArray().Length;
 
-                    if (getResponseResponse?.AudioResponse != null)
+                    // If audio data length is greater than header length, process as normal audio
+                    if (audioDataLength > 46)
                     {
-                        // Check if text data exists in the response
-                        if (getResponseResponse.AudioResponse.AudioData.ToByteArray().Length > 46)
+                        GetResponseResponse.Types.AudioResponse audioResponse = serverResponse.AudioResponse;
+                        string textDataString = audioResponse.TextData;
+                        _currentSampleRate = audioResponse.AudioConfig.SampleRateHertz;
+
+                        // Process the audio data to get the samples for the audio clip
+                        float[] currentSamples = AudioManager.ProcessByteAudioDataToAudioClip(audioResponse);
+
+                        // Add current samples to buffer
+                        _sampleBuffer.AddRange(currentSamples);
+
+                        // Update last audio data time
+                        _lastAudioDataTime = Time.time;
+
+                        // Add transcript to buffer if it's not empty or null
+                        if (!string.IsNullOrEmpty(textDataString))
                         {
-                            // Initialize empty string for text
-                            string textDataString = getResponseResponse.AudioResponse.TextData;
-
-                            byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
-
-                            AudioClip clip = AudioManager.ProcessByteAudioDataToAudioClip(byteAudio,
-                                getResponseResponse.AudioResponse.AudioConfig.SampleRateHertz.ToString());
-
-                            // Add the response audio along with associated data to the list
-                            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
-                            {
-                                AudioClip = clip,
-                                AudioTranscript = textDataString,
-                                IsFinal = false
-                            });
+                            _transcriptBuffer.Add(textDataString);
                         }
-                        else if (getResponseResponse.AudioResponse.EndOfResponse)
+
+                        // Check conditions for creating AudioClip:
+                        // 1. Buffer size >= SAMPLE_BUFFER_SIZE OR 2. We haven't received data for BUFFER_TIMEOUT seconds
+                        bool shouldProcessBuffer = _sampleBuffer.Count >= SAMPLE_BUFFER_SIZE * 3f || Time.time - _lastAudioDataTime >= BUFFER_TIMEOUT;
+
+                        if (shouldProcessBuffer)
                         {
-                            ConvaiLogger.DebugLog("We have received end of response", ConvaiLogger.LogCategory.LipSync);
-                            // Handle the case where there is a DebugLog but no audio response
+                            CreateAndAddAudioClip(false);
+                        }
+                    }
+                    else if (serverResponse.AudioResponse.EndOfResponse)
+                    {
+
+                        // If we have any buffered data, create a final AudioClip with it
+                        if (HasBufferedData)
+                        {
+                            CreateAndAddAudioClip(true);
+                        }
+                        else
+                        {
+                            // No buffered data, just add a final null response
                             AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
                             {
                                 AudioClip = null,
@@ -441,6 +480,45 @@ namespace Convai.Scripts.Runtime.Core
                         }
                     }
                 }
+            }
+            else if (HasBufferedData && Time.time - _lastAudioDataTime >= BUFFER_TIMEOUT)
+            {
+                // Process any remaining buffered data if we haven't received new data for a while
+                CreateAndAddAudioClip(false);
+            }
+        }
+
+
+        /// <summary>
+        /// Creates an AudioClip from the buffered samples and adds it to the response queue
+        /// </summary>
+        /// <param name="isFinal">Whether this is the final chunk of audio</param>
+        private void CreateAndAddAudioClip(bool isFinal)
+        {
+            // Convert buffer to array
+            float[] samples = _sampleBuffer.ToArray();
+
+            // Create merged transcript
+            string mergedTranscript = string.Join(" ", _transcriptBuffer);
+
+            // Create AudioClip
+            AudioClip clip = AudioClip.Create("Audio Response", samples.Length, 1, _currentSampleRate, false);
+            clip.SetData(samples, 0);
+
+            ConvaiLogger.DebugLog($"Creating AudioClip from merged samples. Length: {samples.Length}, Audio clip length: {clip.length}",
+                ConvaiLogger.LogCategory.Character);
+
+            // Add to response queue
+            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
+            {
+                AudioClip = clip,
+                AudioTranscript = mergedTranscript,
+                IsFinal = isFinal
+            });
+
+            // Clear buffers
+            _sampleBuffer.Clear();
+            _transcriptBuffer.Clear();
         }
 
         public int GetAudioResponseCount()

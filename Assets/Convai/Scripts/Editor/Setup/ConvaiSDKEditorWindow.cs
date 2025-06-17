@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
 using Assets.Convai.Scripts.Editor.Setup.LongTermMemory;
 using Convai.Scripts.Editor.CustomPackage;
 using Convai.Scripts.Editor.Setup.AccountsSection;
 using Convai.Scripts.Editor.Setup.Documentation;
 using Convai.Scripts.Editor.Setup.LoggerSettings;
+using Convai.Scripts.Editor.Setup.ServerAnimation.View;
 using Convai.Scripts.Editor.Setup.Updates;
 using Convai.Scripts.Runtime.LoggerSystem;
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,9 +24,9 @@ namespace Convai.Scripts.Editor.Setup
         private static readonly Dictionary<string, (VisualElement Section, Button Button)> Sections = new();
 
         private static readonly string[] SectionNames =
-            { "welcome", "account", "package-management", "logger-settings", "updates", "documentation", "contact-us", "ltm" };
+            { "welcome", "account", "package-management", "logger-settings", "updates", "documentation", "contact-us", "ltm", "server-anim" };
 
-        private static readonly HashSet<string> ApiKeyDependentSections = new() { "logger-settings", "package-management", "ltm" };
+        private static readonly HashSet<string> ApiKeyDependentSections = new() { "logger-settings", "package-management", "ltm", "server-anim" };
 
         private static bool _isApiKeySet;
 
@@ -79,10 +80,16 @@ namespace Convai.Scripts.Editor.Setup
             OpenSection("documentation");
         }
 
-        [MenuItem("Convai/Long Term Memory", priority = 6)]
+        [MenuItem("Convai/Long Term Memory", priority = 7)]
         public static void OpenLTM()
         {
             OpenSection("ltm");
+        }
+
+        [MenuItem("Convai/Server Animation", priority = 8)]
+        public static void OpenServerAnimation()
+        {
+            OpenSection("server-anim");
         }
 
         private static void OpenSection(string sectionName)
@@ -114,8 +121,10 @@ namespace Convai.Scripts.Editor.Setup
             _ = new UpdatesSectionUI(_root);
             _ = new ConvaiCustomPackageInstaller(_root);
             _ = new LongTermMemoryUI(_root);
+            _ = new ServerAnimationPageView(_root);
 
             _root.Q<Button>("documentation-page").clicked += () => Application.OpenURL("https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin");
+            _root.Q<Button>("download-meta-quest-app").clicked += () => Application.OpenURL("https://www.meta.com/en-gb/experiences/convai-animation-capture/28320335120898955/");
         }
 
         private static void InitializeSections()

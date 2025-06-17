@@ -28,11 +28,14 @@ MonoBehaviour:
       our <a href=\\\"https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin/setting-up-unity-plugin\">Import
       and Setup guide.</a> You'll need to perform some additional steps if you want
       to build for WebGL or XR platforms. Please follow the steps mentioned <a href=\\\"https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin/building-for-supported-platforms\">here.</a> 
-      \n\nWe are officially deprecating the <b>Character Importer</b> feature. However,
-      you can continue to import <b>Ready Player Me</b> characters as well as your
-      <b>custom characters</b> by following the guidelines outlined in our <a href=\\\"https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin/importing-custom-characters\">Importing
-      Custom Character</a> documentation.\n\n<a href=\\\"https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin/changelogs\">What's
-      new in version 3.2.4</a>\n"
+      \n\nWe\u2019re excited to announce the launch of the <b>Convai Animation Capture</b>
+      application on the <b>Meta Quest Store</b>!\n\nThis powerful tool enables you
+      to <b>record high-quality humanoid animations directly in VR</b> and seamlessly
+      bring them into <b>Unity</b> using the latest <b>Convai Unity plugin</b>. Best
+      of all, the captured animations are <b>engine-agnostic</b>, making them compatible
+      with any development pipeline.\n\nStart creating lifelike motion content with
+      ease\u2014directly from your Meta Quest headset.\n\n<a href=\\\"https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin/changelogs\">What's
+      new in version 3.3.0</a>\n"
   m_Buttons:
   - Text:
       m_Untranslated: Let's Start

@@ -12,6 +12,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 235621
   packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
-  packageVersion: 3.2.4
+  packageVersion: 3.3.0
   assetPath: Assets/Convai/Demo/Avatars/Convai NPC Amelia/Shaders/RL_EyeOcclusionShader_3D.shader
-  uploadId: 737824
+  uploadId: 763443

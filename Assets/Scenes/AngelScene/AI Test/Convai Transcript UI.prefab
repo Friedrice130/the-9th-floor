@@ -45,25 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119d1116f25796d4da5239037da0977f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatBoxPrefab: {fileID: 7250611778303013844, guid: 6be801be9565703429ad458d9016ce97, type: 3}
-  subtitlePrefab: {fileID: 46267408817936607, guid: 307009c99d606604ca15584c3d94bcaf, type: 3}
-  questionAnswerPrefab: {fileID: 5104974080613312044, guid: 3b31e3b8e37736f4b880e1166fae0f83, type: 3}
-  characters:
-  - characterGameObject: {fileID: 0}
-    characterName: Amelia
-    characterTextColor: {r: 1, g: 0, b: 0, a: 1}
-  - characterGameObject: {fileID: 0}
-    characterName: Missy
-    characterTextColor: {r: 1, g: 0, b: 0, a: 1}
-  - characterGameObject: {fileID: 0}
-    characterName: Anna Reed
-    characterTextColor: {r: 1, g: 0, b: 0, a: 1}
-  - characterGameObject: {fileID: 0}
-    characterName: Mike Carter
-    characterTextColor: {r: 1, g: 0, b: 0, a: 1}
-  - characterGameObject: {fileID: 0}
-    characterName: Steve
-    characterTextColor: {r: 1, g: 0, b: 0, a: 1}
+  chatBoxPrefab: {fileID: 7250611778303013844, guid: 9c51bdd28363cda48b2a6b1a3f9e33fb, type: 3}
+  subtitlePrefab: {fileID: 46267408817936607, guid: 55c57d6aa839ac54ca3e29e60ee1d6d2, type: 3}
+  questionAnswerPrefab: {fileID: 5104974080613312044, guid: 71ac9c27b1e1a5f4baf34b9df4029110, type: 3}
+  characters: []
   playerTextColor: {r: 0.27270314, g: 0.7433963, b: 0, a: 1}
 --- !u!114 &7122311387437513675
 MonoBehaviour:

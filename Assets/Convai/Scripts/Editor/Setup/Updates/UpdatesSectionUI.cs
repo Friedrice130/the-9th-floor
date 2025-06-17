@@ -30,7 +30,7 @@ namespace Convai.Scripts.Editor.Setup.Updates
         {
             Label versionLabel = _root.Q<Label>("current-version");
             if (versionLabel != null)
-                versionLabel.text = "v3.2.4";
+                versionLabel.text = "v3.3.0";
         }
 
         private void CheckForUpdates()
