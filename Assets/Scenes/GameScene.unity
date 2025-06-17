@@ -11791,6 +11791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2060789707785385855, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 00ad557880ee2244eab938d74f3613f7, type: 2}
     - target: {fileID: 2107409826236812522, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
       propertyPath: m_Name
       value: GhostDaughter (1)
@@ -18137,6 +18141,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3970243614316841892, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2060789707785385855, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 00f27a7934775ec4896ff51fe43124d8, type: 2}
+    - target: {fileID: -2060789707785385855, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107409826236812522, guid: 6a3350eca925ad1428ec3f02c21c3b86, type: 3}
