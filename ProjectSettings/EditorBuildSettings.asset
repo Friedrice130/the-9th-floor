@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 66a388613dc0d7249ad71665bc7cba44
   - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: bc5adfa808b061347a2874580f2e8cb1
+  - enabled: 1
     path: Assets/Scenes/DiaryCS.unity
     guid: 8aa2fe8b7a8be3f4d93a57e05b8d0e0d
   - enabled: 1

@@ -10,9 +10,9 @@ public class deathScreen : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(loadToMenu());
+        StartCoroutine(loadToL9());
     }
-    IEnumerator loadToMenu()
+    IEnumerator loadToL9()
     {
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(SceneName);
