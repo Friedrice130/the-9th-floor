@@ -10,7 +10,7 @@ public class GuardAI : MonoBehaviour
     public Transform dest1, dest2;
     private Transform currentTarget;
 
-    public float idleTime = 5f;
+    public float idleTime;
     private bool isWalking = true;
     private bool isIdle = false;
 
