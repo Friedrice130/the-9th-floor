@@ -31,8 +31,8 @@ public class GuardAI : MonoBehaviour
 
     void MoveToDestination()
     {
-        aiAnim.SetTrigger("walk");
         aiAnim.ResetTrigger("idle");
+		aiAnim.SetTrigger("walk");
         ai.SetDestination(currentTarget.position);
         ai.speed = 3;
         isWalking = true;
@@ -44,8 +44,8 @@ public class GuardAI : MonoBehaviour
         if (isIdle) yield break; // Prevent multiple coroutines
         isIdle = true;
         isWalking = false;
+		aiAnim.ResetTrigger("walk");
         aiAnim.SetTrigger("idle");
-        aiAnim.ResetTrigger("walk");
         ai.speed = 0;
 
         yield return new WaitForSeconds(idleTime);
