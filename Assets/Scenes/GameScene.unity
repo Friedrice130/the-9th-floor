@@ -40313,8 +40313,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.320549, y: 0.38163036, z: 1.0907633}
-  m_Center: {x: -0.024546396, y: 0.21751718, z: -0.6819942}
+  m_Size: {x: 0.320549, y: 0.38163036, z: 1.1806436}
+  m_Center: {x: -0.024546396, y: 0.21751718, z: -0.26227063}
 --- !u!23 &795498526
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58498,7 +58498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: d42659c489fa00c40ad2e75b0f118927, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: d42659c489fa00c40ad2e75b0f118927, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58629,7 +58629,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.53
-  m_Speed: 4
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360
