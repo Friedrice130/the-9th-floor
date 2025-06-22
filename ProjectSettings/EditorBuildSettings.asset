@@ -6,22 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Z Input/MainMenu.unity
     guid: 01095f822bb4fd44c9d5042cc6af52a0
   - enabled: 1
-    path: Assets/Scenes/IntroCS.unity
+    path: Assets/Scenes/Z Input/IntroCS.unity
     guid: ba9bf4c3eb5e67d4a93b44bcafe9e42f
   - enabled: 1
-    path: Assets/Scenes/VR/GameScene_VR.unity
+    path: Assets/Scenes/GameScene_VR.unity
     guid: 66a388613dc0d7249ad71665bc7cba44
   - enabled: 1
-    path: Assets/Scenes/Death.unity
+    path: Assets/Scenes/Z Input/Death.unity
     guid: bc5adfa808b061347a2874580f2e8cb1
   - enabled: 1
-    path: Assets/Scenes/DiaryCS.unity
+    path: Assets/Scenes/Z Input/DiaryCS.unity
     guid: 8aa2fe8b7a8be3f4d93a57e05b8d0e0d
   - enabled: 1
-    path: Assets/Scenes/EndCS.unity
+    path: Assets/Scenes/Z Input/EndCS.unity
     guid: 8c64d81d070ff4b4b84ca88c3c475640
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4b8331903bcf3e44ca10a6cbffacf566, type: 2}
