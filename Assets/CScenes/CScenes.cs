@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR;  // For XR input
 
 public class CScenes : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class CScenes : MonoBehaviour
     public Image black;
     public Animator anim;
 
+    private InputDevice rightController;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -29,12 +32,29 @@ public class CScenes : MonoBehaviour
         }
 
         ShowPage(0);
+        InitializeControllers();
     }
 
+    void InitializeControllers()
+    {
+        var rightHandedControllers = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(XRNode.RightHand, rightHandedControllers);
+
+        if (rightHandedControllers.Count > 0)
+        {
+            rightController = rightHandedControllers[0];
+        }
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!rightController.isValid)
+        {
+            InitializeControllers();  // Reacquire controller if lost
+        }
+
+        bool triggerPressed = false;
+        if (rightController.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed) && triggerPressed)
         {
             ShowNextStep();
         }
@@ -87,12 +107,6 @@ public class CScenes : MonoBehaviour
                 anim.SetTrigger("Appear");
             }
 
-            SpritesSFX soundPlayer = step.GetComponent<SpritesSFX>();
-            if (soundPlayer != null)
-            {
-                soundPlayer.PlaySound(audioSource);
-            }
-
             if (clickSound != null)
             {
                 audioSource.PlayOneShot(clickSound);
@@ -111,6 +125,7 @@ public class CScenes : MonoBehaviour
         }
     }
 
+
     void ShowNextPage()
     {
         ShowPage(currentPageIndex + 1);
@@ -118,7 +133,7 @@ public class CScenes : MonoBehaviour
 
     void EndCutscene()
     {
-        //StartCoroutine(Fading());
+        // StartCoroutine(Fading());
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 
