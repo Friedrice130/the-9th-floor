@@ -27,4 +27,6 @@ EditorBuildSettings:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4b8331903bcf3e44ca10a6cbffacf566, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0f4edf42dd7c45b42ae2756290cf4ba1, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a3f3b1bf5c4d1c9498421b4683355b4e, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 99b8ef4ecb05afd43a0d8bb3aabce826, type: 2}
   m_UseUCBPForAssetBundles: 0

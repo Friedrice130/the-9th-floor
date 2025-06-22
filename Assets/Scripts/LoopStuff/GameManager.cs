@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
         FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
         EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
+        GhostManager.Instance.OnPlayerEnterFloor(currentFloor);
+
 
         if (FindFirstObjectByType<SpawnAnomaly>() != null)
             FindFirstObjectByType<SpawnAnomaly>().ClearAnomalies();
@@ -74,6 +76,8 @@ public class GameManager : MonoBehaviour
 
         FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
         EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
+        GhostManager.Instance.OnPlayerEnterFloor(currentFloor);
+
 
         if (anomalySpawner != null)
             anomalySpawner.ClearAnomalies();
@@ -112,6 +116,8 @@ public class GameManager : MonoBehaviour
 
         FindFirstObjectByType<FloorDisplay>().UpdateFloorDisplay();
         EvidenceManager.Instance.OnPlayerEnterFloor(currentFloor);
+        GhostManager.Instance.OnPlayerEnterFloor(currentFloor);
+
 
         SetEndTriggersActive(currentFloor == 1);
 
