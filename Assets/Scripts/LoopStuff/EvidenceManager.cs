@@ -25,10 +25,6 @@ public class EvidenceManager : MonoBehaviour
 
     private int currentFloor = -1;
 
-    // Cutscene related
-    public GameObject cutsceneContainer; // Assign CScenesD in Inspector
-    public GameObject[] cutscenePages;   // Assign Page1, Page2, etc.
-    public float pageDisplayTime = 3f;   // Seconds each page is shown
 
     private void Awake()
     {
@@ -66,7 +62,7 @@ public class EvidenceManager : MonoBehaviour
             // Check if this is the special floor 8 cutscene (element 0)
             if (evidences.Length > 0 && evidences[0] == matchedEvidence)
             {
-                StartCoroutine(PlayCutsceneThenContinue());
+
                 return; // Skip rest of the method during cutscene
             }
         }
@@ -156,37 +152,6 @@ public class EvidenceManager : MonoBehaviour
             evidencePopupUI.alpha -= Time.deltaTime;
             yield return null;
         }
-    }
-
-    private IEnumerator PlayCutsceneThenContinue()
-    {
-        if (cutsceneContainer != null)
-            cutsceneContainer.SetActive(true);
-
-        for (int i = 0; i < cutscenePages.Length; i++)
-        {
-            // Activate current page, deactivate others
-            for (int j = 0; j < cutscenePages.Length; j++)
-            {
-                cutscenePages[j].SetActive(j == i);
-            }
-
-            // Wait for mouse click
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-            yield return null; // small delay to avoid accidental double skips
-        }
-
-        // Hide all pages and cutscene
-        foreach (var page in cutscenePages)
-        {
-            page.SetActive(false);
-        }
-
-        if (cutsceneContainer != null)
-            cutsceneContainer.SetActive(false);
-
-        ShowPopup($"{collectedFloors.Count} / {evidences.Length}");
-        Debug.Log($"Collected evidence: {collectedFloors.Count} / {evidences.Length}");
     }
 
 }
