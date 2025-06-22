@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github\\The-9th-Floor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|d:\\github\\the-9th-floor\\assets\\scripts\\uistuff\\mainmenubuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uistuff\\mainmenubuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\fastmesh\\scripts\\sceneviewtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\fastmesh\\scripts\\sceneviewtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\cscenes\\cscenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\cscenes\\cscenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\cscenes\\cscenes1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\cscenes\\cscenes1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\loopstuff\\spawnanomaly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loopstuff\\spawnanomaly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\cscenes\\cscenesd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\cscenes\\cscenesd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\loopstuff\\endleveltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loopstuff\\endleveltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\loopstuff\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loopstuff\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\uistuff\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uistuff\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\loopstuff\\backwardplayerteleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loopstuff\\backwardplayerteleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|D:\\Github\\The-9th-Floor\\assets\\scripts\\loopstuff\\newplayerteleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7C602D-7311-05D5-B5D7-7E6C4607A013}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loopstuff\\newplayerteleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SceneViewText.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\FastMesh\\Scripts\\SceneViewText.cs",
+              "RelativeDocumentMoniker": "Assets\\FastMesh\\Scripts\\SceneViewText.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\FastMesh\\Scripts\\SceneViewText.cs",
+              "RelativeToolTip": "Assets\\FastMesh\\Scripts\\SceneViewText.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA2wCYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T15:50:12.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CScenes1.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenes1.cs",
+              "RelativeDocumentMoniker": "Assets\\CScenes\\CScenes1.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenes1.cs",
+              "RelativeToolTip": "Assets\\CScenes\\CScenes1.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAgwHYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T14:30:10.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainMenuButtons.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\UIStuff\\MainMenuButtons.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UIStuff\\MainMenuButtons.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\UIStuff\\MainMenuButtons.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UIStuff\\MainMenuButtons.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAiwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T14:18:09.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "options.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\UIStuff\\options.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UIStuff\\options.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\UIStuff\\options.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UIStuff\\options.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T14:16:43.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CScenesD.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenesD.cs",
+              "RelativeDocumentMoniker": "Assets\\CScenes\\CScenesD.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenesD.cs",
+              "RelativeToolTip": "Assets\\CScenes\\CScenesD.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAkwHwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T14:11:02.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EndLevelTrigger.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\EndLevelTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoopStuff\\EndLevelTrigger.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\EndLevelTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoopStuff\\EndLevelTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T13:58:28.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CScenes.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenes.cs",
+              "RelativeDocumentMoniker": "Assets\\CScenes\\CScenes.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\CScenes\\CScenes.cs",
+              "RelativeToolTip": "Assets\\CScenes\\CScenes.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAHgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T13:27:27.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoopStuff\\GameManager.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoopStuff\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:29:52.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BackwardPlayerTeleporter.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\BackwardPlayerTeleporter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoopStuff\\BackwardPlayerTeleporter.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\BackwardPlayerTeleporter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoopStuff\\BackwardPlayerTeleporter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:47:12.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NewPlayerTeleporter.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\NewPlayerTeleporter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoopStuff\\NewPlayerTeleporter.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\NewPlayerTeleporter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoopStuff\\NewPlayerTeleporter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:30:57.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SpawnAnomaly.cs",
+              "DocumentMoniker": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\SpawnAnomaly.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoopStuff\\SpawnAnomaly.cs",
+              "ToolTip": "D:\\Github\\The-9th-Floor\\Assets\\Scripts\\LoopStuff\\SpawnAnomaly.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoopStuff\\SpawnAnomaly.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:23:21.367Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
