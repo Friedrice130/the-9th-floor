@@ -6,7 +6,7 @@ using TMPro;
 
 public class options : MonoBehaviour
 {
-    public TMP_Dropdown graphicsDrop, resoDrop;
+    public Dropdown graphicsDrop, resoDrop;
     public Slider volumeSlider;
     public bool inGame;
 

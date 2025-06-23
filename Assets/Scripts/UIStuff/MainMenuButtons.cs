@@ -17,7 +17,7 @@ public class MainMenuButtons : MonoBehaviour
     IEnumerator Fading()
     {
         anim.SetBool("Fade", true);
-        SceneManager.LoadScene("IntroCS");
+        SceneManager.LoadScene("IntroCutscene");
         yield return new WaitForSeconds(3f); // Adjust based on your fade animation length
     }
 

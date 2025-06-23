@@ -12,7 +12,7 @@ public class EndLevelTrigger : MonoBehaviour
     {
         anim.SetBool("Fade", true);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("DiaryCS");
+        SceneManager.LoadScene("EndingCutscene");
     }
 
     private void OnTriggerEnter(Collider other)
