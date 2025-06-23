@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroAutoLoadScene : MonoBehaviour
+public class OutroAutoLoadScene : MonoBehaviour
 {
-    public string sceneName = "GameScene_VR";  // The scene you want to load
+    public string sceneName = "MainMenu_VR";  // The scene you want to load
     public float delay = 22f;                  // Delay in seconds
 
     void Start()

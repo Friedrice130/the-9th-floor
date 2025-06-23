@@ -29456,9 +29456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostAnim: {fileID: 1636005796}
-  player: {fileID: 0}
+  player: {fileID: 1695920506}
   jumpscareTime: 2
-  sceneName: Death
+  sceneName: Death_VR
 --- !u!65 &594170970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38150,9 +38150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostAnim: {fileID: 1187745931}
-  player: {fileID: 0}
+  player: {fileID: 1695920506}
   jumpscareTime: 2
-  sceneName: Death
+  sceneName: Death_VR
 --- !u!65 &795498525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55712,7 +55712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 1187745932}
-  player: {fileID: 0}
+  player: {fileID: 1695920507}
 --- !u!1001 &1192695290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81706,7 +81706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 1636005797}
-  player: {fileID: 0}
+  player: {fileID: 1695920507}
 --- !u!4 &1636005799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: d42659c489fa00c40ad2e75b0f118927, type: 3}
@@ -83697,6 +83697,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+--- !u!1 &1695920506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1695920505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1695920507 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1695920505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1697112972
 PrefabInstance:
   m_ObjectHideFlags: 0
